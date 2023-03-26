@@ -1,4 +1,3 @@
-#https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_accepter
 data "aws_caller_identity" "peer" {
   #depois alterar para aws.peer, alterar tb lá no providers
   provider = aws.peer
@@ -36,17 +35,13 @@ resource "aws_vpc_peering_connection_accepter" "peer" {
 
 resource "aws_route" "rt_main" {
   route_table_id = join("", module.vpc_main.public_route_table_ids)
-  //route_table_id = "rtb-0288a94dc427b5df4"
   destination_cidr_block    = var.vpc_cidr_peer
   vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
-
 }
 
 resource "aws_route" "rt_peer" {
   provider       = aws.peer
   route_table_id = join("", module.vpc_peer.public_route_table_ids)
-  //route_table_id = "rtb-0288a94dc427b5df4"
   destination_cidr_block    = var.vpc_cidr_main
   vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
-
 }

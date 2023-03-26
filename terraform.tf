@@ -1,7 +1,7 @@
 terraform {
 
   cloud {
-    organization = "CleitonJose"
+    organization = var.organization
 
     workspaces {
       name = "SAA-C03"
@@ -16,4 +16,5 @@ terraform {
   }
 
   required_version = ">= 0.14.0"
+
 }

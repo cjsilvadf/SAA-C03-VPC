@@ -34,3 +34,5 @@ terraform.tf
 .terraform.lock.hcl
 ec2_var.tf
 vpc-peering.drawio
+terraform.tf
+

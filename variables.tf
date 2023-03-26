@@ -6,6 +6,10 @@ variable "instance_type" {}
 variable "naming_prefix" {
   type = string
 }
+variable "organization" {
+  type = string
+  
+}
 variable "ami_owner_account_id" {
   type = string
 }
