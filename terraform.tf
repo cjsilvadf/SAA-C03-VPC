@@ -1,7 +1,7 @@
 terraform {
 
   cloud {
-    organization = var.organization
+    organization = "CleitonJose"
 
     workspaces {
       name = "SAA-C03"
