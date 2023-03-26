@@ -20,14 +20,12 @@ resource "aws_instance" "peer_linux-server" {
   source_dest_check           = var.ec2_check
   key_name                    = aws_key_pair.peer.key_name
   monitoring                  = var.ec2_monitoring
-  ebs_optimized               = var.ec2_ebs_optimized
   iam_instance_profile        = aws_iam_instance_profile.ec2_profile_s3.name
   user_data                 = "${file("install_apache.sh")}"
   metadata_options {
-    http_endpoint = "enable"
+    http_endpoint = "enabled"
     http_tokens   = "required"
-  }
-  
+  }  
 
 
   # root disk
@@ -43,9 +41,9 @@ resource "aws_instance" "peer_linux-server" {
     volume_size           = var.ebs_block_device_size
     volume_type           = var.ebs_volume_type
     encrypted             = true
-    ebs_optimized         = true
-    delete_on_termination = var.ebs_delete_ebs_encryption
 
+    delete_on_termination = var.ebs_delete_ebs_encryption
+    
   }
 
   tags = merge(local.common_tags, { Name = "EC2-SAA-C03" }, )

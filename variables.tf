@@ -4,17 +4,15 @@ variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
 variable "instance_type" {}
 variable "naming_prefix" {
-  type        = string
+  type = string
 }
 variable "ami_owner_account_id" {
-  type    = string
+  type = string
 }
-
 #
-
 variable "vpc_cidr_main" {
-  type    = string
-  vpc_cidr_main = "10.1.0.0/16"
+  type          = string
+  default = "10.1.0.0/16"
 }
 variable "public_subnets_cidr_main" {
   type    = list(any)
@@ -35,8 +33,8 @@ variable "policy_name" {
 }
 variable "bucket_name" {
   type    = string
-  default =  "ssa-c03-2023"
-  
+  default = "ssa-c03-2023"
+
 }
 
 variable "ebs_device_name" {

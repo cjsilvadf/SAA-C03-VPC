@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu-linux-2004" {
 # Get latest Ubuntu Linux Focal Fossa 20.04 AMI
 data "aws_ami" "ubuntu-linux-2204" {
   most_recent = true
-  owners      = [var.ami_owner_account_id]
+  owners      = ["099720109477"]
 
   filter {
     name   = "name"
